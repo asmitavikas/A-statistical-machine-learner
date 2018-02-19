@@ -1,0 +1,18 @@
+Q1. What is the main difference between a Pandas series and a single-column DataFrame in Python?
+A1. Dataframes can be thought of as a dict-like container for Series objects. So the Series is the datastructure for a single column of a DataFrame.
+
+Q2. Write code to sort a DataFrame in Python in descending order.
+A1. df.sort([<col_name>], ascending=[False])
+
+Q3. How to deal with duplicates in a dataframe.
+A3. #Identify duplicates records in the data
+	dupes=bill_data.duplicated()
+	#Removing Duplicates
+	bill_data_uniq=bill_data.drop_duplicates()
+
+Q4. Which is the standard data missing marker used in Pandas?
+A4. NaN
+
+Q5. What are decorators?
+A5. used to modify or inject code in functions or classes. 
+	Using decorators, you can wrap a class or function method call so that a piece of code can be executed before or after the execution of the original code. 

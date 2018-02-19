@@ -1,0 +1,59 @@
+Q1. When is it safe to assume "normal" distribution.
+A1. CLT states that when the sample sizes are large enough, sample means tend to have normal distributions. N=30 is a valid lower bound on sample size. We can also build the model and then plot QQ plots or apply Shapiro-Wilk or Kolmogrov-Smirnov's test to find normality.
+
+Q2. if confidence interval of two groups is [-10,-8] how would  you explain it? (Google)
+A2. Assume confidence interval of two groups = confidence interval of difference in data between two groups
+	Let us take the confidence level = 95%. 
+	We are 95% confident that the mean of the difference between two groups lies between -10 and -8.
+	Mean would be -9 and standard error around 1/2
+
+Q3. Explain confidence interval to someone without a statistics background
+A3. Confidence intervals capture how confident we are about a particular value. If we're not confident, the interval will be large. It's like we're saying, "I think this is the right value, but it could be as low as this or as high as this. We're not very confident in it". If the confidence interval is high, it's because we have a small sample size, a lot of variation, or both.
+
+Q4. Bootstrap resampling?
+A4. Bootstrapping is a statistical method that uses data resampling with replacement (see: generate_sample_indices) to estimate the robust properties of nearly any statistic.
+
+Q5. What is p-value?
+A5. When we perform a statistical test, p-value helps us determine the significance of the results. p-value gives something like "probability of the null hypothesis being true." Small p-value = reject null hypothesis
+
+Q6. What is the difference between Bayesian Estimate and Maximum Likelihood Estimation (MLE)?
+A6. In bayesian estimate we have some knowledge about the data/problem (prior) .There may be several values of the parameters which explain data and hence we can look for multiple parameters like 5 gammas and 5 lambdas that do this. So we need with prior and posterior probabilties.
+	Maximum likelihood does not take prior into consideration (ignores the prior) so it is like being a Bayesian  while using some kind of a flat prior.
+
+Q7. What is an Eigenvalue and Eigenvector?
+A7. In linear algebra, an eigenvector or characteristic vector of a linear transformation is a non-zero vector that only changes by a scalar factor, when that linear transformation is applied to it. 
+
+Q8. What is the curse of dimensionality?
+A8. This exponential growth in data causes high sparsity in the data set and unnecessarily increases storage space and processing time for the particular modelling algorithm. This makes clustering etc very difficult. 2d clusters can't be generalized to 7d
+
+Q9. How can non-linear relations between X (age) and Y (income) fit into a linear model?
+A9. https://www.quora.com/How-can-non-linear-relations-between-X-age-and-Y-income-fit-into-a-linear-model
+	By approximating values between a range.
+
+Q10. What is “naive” in a naive Bayes classifier?
+A10. A naive Bayes classifier assumes that the presence (or absence) of a particular feature of a class is unrelated to the presence (or absence) of any other feature, given the class variable.
+	Doesn't constitute for independency between features.
+	eg. a fruit may be considered to be an apple if it is red, round, and about 4" in diameter. Even if these features depend on each other or upon the existence of the other features, a naive Bayes classifier considers all of these properties to independently contribute to the probability that this fruit is an apple.
+
+Q11. What is bayesian vs frequentist view points?
+A11. Bayesian says that data is fixed and parameters need to be defined
+	 frequentist says that parameters are fixed and data need to be randomly sampled.
+
+Q12. Difference between Bayesian estimator and Maximum Likelihood?
+A12. Maximum likelihood finds parameters which maximizes the probability of the data point to appear
+	 Bayesian calculates the prosterior probabilty of data point given a parameter
+
+Q13. How to ensure random sampling for A/B tests?
+A13. Use stratified sampling. Divide the population into homogenous groups, then randomly sample from those groups. Reduces variance.
+
+Q14. How to find the influence of a person on twitter?
+A14. http://thenoisychannel.com/2009/01/13/a-twitter-analog-to-pagerank
+
+Q15. Explain prior probability, likelihood and marginal likelihood in context of naiveBayes algorithm?
+A15. Prior probability is the proportion of dependent (binary) variable in the data set. 
+		eg. (number of spam = yes)/ total data points
+
+	 Likelihood is the probability of classifying a given observation as 1 in presence of some other variable.
+	 	eg. The probability that the word ‘FREE’ is used in previous spam message is likelihood
+
+	 Marginal likelihood the probability that the word ‘FREE’ is used in any message.

@@ -1,0 +1,83 @@
+Q1. What is the difference between filter, wrapper, and embedded methods for feature selection?
+A1. Wrapper : defines usefulness of features based on classifier performance. 
+	Filter : pick up intrinsic properties of the features measured via univariate statistics instead of cross-validation performance.
+	Embedded : Similar to wrapper method, but used during learning, not after learning
+	Filter methods:
+		information gain
+		chi-square test
+		fisher score
+		correlation coefficient
+		variance threshold
+	Wrapper methods:
+		recursive feature elimination
+		sequential feature selection algorithms
+		genetic algorithms
+	Embedded methods:
+		L1 (LASSO) regularization
+		decision tree
+
+Q2. Collaborative filtering for movie ratings?
+A2. dot product of embedding vectors + movie bias + user bias
+
+Q3. Types of algorithm for recommendation?
+A3. content filtering and collaborative filtering
+	content filtering : uses known information about the products(price, description) and users (demographics, questionarie info) to make recommendations. 
+	collaborative filtering: uses users input/behavior history to make recommendations
+
+Q4. What is ALS?
+A4. ALS stands for alternating least squares. It is used in recommender systems where we use r = p(T)q (where p = user rating, q = movie rating)
+	In stochastic gradient descent, we compute the error  (r - P(T)q) and then update the parameters by a factor in opposite direction of the gradient 
+	However, in ALS, we fix either p or q to convert a non-convex optimization problem to a quadratic. ALS fixes each one of those alternatively. When one is fixed, the other one is computed, and vice versa.
+	ALS is easy to parallelize and can be used for non-sparse datasets easily.
+	Hence ALS has implementation using spark. (https://www.quora.com/What-is-the-Alternating-Least-Squares-method-in-recommendation-systems-And-why-does-this-algorithm-work-intuition-behind-this)
+
+Q5. How to do null imputation? How would it work on a sparse dataset?
+A5. Depends on the type of data. Lets say we have a movie recommendation system. If data is missing there, the user has not seen the movie. Good idea to put 0 there (implicit feedback)
+	Else put some random values like -99999
+	Use KNN to find nearest neighbours, and use there values
+
+Q6. What is negative sampling and implicit feedback in recommendation?
+A6. Let us take Netflix as an example. Let us say we have a dataset of 100 movies with 10 movies in each genre.
+	A user X watches only Comedy and Action movies. (2 genres = 20 movies). X has watched 6 comedy movies and 5 action movies.
+	Negative sampling : When trying to recommend new movies, use only 20 movies as the new dataset for user X.
+	Implicit Feedback : In comedy and action genre, replace missing values with 0. The idea is that, if X has chosen "not to watch" those 4 comedy movies, the probabilty of X rating those missing 4 comedy movies as +ve is very low. So put 0
+
+
+Q7. Does gradient descent always converge to the same point?
+A7. No, they do not because in some cases it reaches a local minima or a local optima point. You don’t reach the global optima point. It depends on the data and starting conditions.
+
+Q8. What is the goal of A/B Testing?
+A8. In web analytics, A/B testing (bucket tests or split-run testing) is a controlled experiment with two variants, A and B.
+
+Q9. How to prevent overfitting?
+A9. 1. collect more data
+	2. use ensembling methods that “average” models
+	3. choose simpler models / penalize complexity
+
+Q10. Loss function for recommendation?
+A10. Rating prediction : MSE
+	 Whether a person will watch a movie next or not : Log loss
+
+	 Metric : Accuracy
+
+Q11. Ensemble, Bagging and Boosting?
+A11. Boosting : is an ensemble technique in which the predictors are not made independently, but sequentially.
+	 Bagging : ensembling technique in which we build many independent predictors/models/learners and combine them using some model averaging techniques.
+
+
+Q12. What is ADABoost?
+A12. All observations are given some initial weight. w_i = i/N
+	 For each tree, 
+	 	find weighted error. w_i*I(y_i != y_hat_i)
+	 	find parameter of the tree (alpha)= log((1-err)/err)
+	 	new weights of each data point = alpha * w_i (1 for prediction right, 0 for prediction wrong)
+
+	 So each data point is weighted according to the number of times it has been identified wrong.
+	 Final model : alpha_i for each model
+
+Q13. Gradient Boost?
+A13. At each tree, we want to minimize the MSE using Gradient Descent. 
+	 For pth tree, let each observation be y_i
+	 MSE = sum(y - y_i)
+	 y_i = y_i - eta * d(MSE)/d(y_i)
+	 	 = y_i - eta * 2 * sum(y - y_i)
