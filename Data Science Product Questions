@@ -1,0 +1,124 @@
+Q1. Give an example of a case in which you run an A/B test, test wins with significant p-value, but you still choose to not make the change?
+A19. Sample size too low. bigger the sample size more is the statistical significance of a computed figure
+
+
+Q2. What does statistical significance mean?
+A20. Statistical significance means that there is less chance of sampling error affecting the mean differences. It comes from data and the confidence intervals.
+
+	 Statistical significance means that there is a probability that a relationship between two variables exists.
+	 A practical significance means that there exists a relationship between two variables in the real world.
+
+Q3. Steps for A/B Testing?
+A21. a. Find the business goal : to improve the website
+	 b. Find the KPI used to measure this goal : what to measure, click through rate
+	 c. Select the elements to test : two versions of the submit button
+	 d. Design the test : mean/proportion, sample size, significance level
+	 e. Divide population : stratified random etc
+	 f. Let the test accumulate data : don't stop in between if significance level is reached
+	 g. Document the results and implement the changes if needed
+
+Q4. We ran an A/B test. Test won, so we make the change on the site for all users. But after waiting for some time, we realize that the new version of the site is not performing better than the old one. What could be the reason?
+A4. a. One reason could be that the sample size was very low. If we start running an experiment on 'number of people opening the app B vs A'. Let us say that 10 people opened the app and the significance is reached (Ho rejected). We should not stop the experiment there, saying B > A, because 10 is a very small number. We should keep running the experiments till the predefined 'n' ie sample size is reached. This predefined 'n' can be based on the desired 'power' of the experiment.
+    b. Other reason is using 1 tailed experiment when a two tailed was needed. Let us say we want to see if a new UI brings in more people. Ho: UI_B = UI_A, Ha: UI_B > UI_A. IF we reject Ho, it does not mean that UI_B > UI_A. UI_B can be even less than UI_A, because Ho only deals with UI_B = UI_A. So we need to conduct a two tailed experiment and then see which side A and B lie.
+
+Q5. You are launching a messaging app. Define 2 metrics that you'd choose to monitor app performance during the first months. Why you chose them?
+A5. a. Number of downloads
+	b. Number of daily active users
+	c. Virality : Using the source of download : # downloads where source is invite from another user/ # downloads
+	d. Session interval
+	e. Session length
+	f. Retention 30 day
+
+Q6. Dealing with missing values:
+	Deletion vs Imputation:
+	Deletion:
+		Listwise : removes all data for an observation that has one or more missing values. This can produce bias in the data.
+		Dropping missing variables
+	Imputation:
+		Standard problem : 
+			Mean median or mode for continous data
+			Logistic Regression on multilevel for categorical variable, KNN
+		Timeseries problem:
+			Without trend :	mean, median, mode, random imputation
+			Trend, no seasonality : Linear interpolation (Regression)
+			Trend and seasonality : Seasonal adjustment + Linear Interpolation (remove seasonlity -> regression -> bring back seasonality)
+
+Q7. How to estimate value of a customer who lands to our page for the first time?
+A7. Average customer value : 
+		check the landing page from where they came : what is the avg conversion of that landing page  - (i)
+		Bounce rate : percentage of customers who immediately leave the page - (ii)
+		where did they go in the website, and avg conversion associated with each page from historic data - (iii)
+		avg session duration : avg conversion attached to that - (iv)
+		(i - ii + iii + iv) * (avg customer value overall from historic data)
+		
+Q8. Which variables are important to predict a fake listing on eBay?
+A8. a. Feedback on seller
+	b. changes in account activity
+	c. sudden patterns in account activity
+	d. listing characteristics - words, font etc
+	e. acceptable payment methods
+	f. selling from non-US to US market
+	g. sometimes few, sometimes large items on sale
+	h. selling multiple identical items.
+
+	Decision tree, neural network, naive bayes
+
+Q9. Explain the drawbacks of running an A/B test by market (i.e. all people in one market get version A of the site and another market version B)?
+A9. Not random distribution of population. External factors might influence our experiment
+
+Q10. How would you use data to evaluate if it makes sense to implement two-step authentication when users log in?
+A10. Time taken to sign-in
+	 Current ease of sign-in
+	 Number of frauds in the data
+	 User feedback
+
+Q11. Each user on our site can be described by 100 continuous variables. What's the probability that a user is an outlier on at least one variable? 
+A11. Binomial distribution. Probability of outlier in each variable = probability of sucess = p
+	 probability that a user is an outlier on at least one variable -> 
+	 	P(X >= 1) = 1 - P(X < 1) = 1 - P(X = 0) = 1 - 100C0*(P^0)*(1-P)^(100-0)
+
+Q12. Describe one example of a classification problem where the cost of a false positive is way higher than false negative as well as the other way round?
+A12. Where false positive is worse than false negative : finding someone guilty in trial
+	 Where false negetive is worse than false positive : medical like cancer detection, HIV.
+
+Q13. LinkedIn has launched its first version of the People You May Know Feature. How would you isolate the impact of the algorithm behind it w/o considering the UI change effect?
+A13. A/A test to see if numbers generated are not at random. So 'People You May Know' might not be random.
+
+Q14. How would you find out if someone put a fake school on LinkedIn? I.e. they actually didn't attend it
+A14. Looking at clusters of others who attended that school to see if you can find any similarity between them.
+
+Q15. You are supposed to run an A/B test for 3 weeks based on sample size calculation. But after 1 week, p-value is already significant with test winning. So your product manager pressures you to stop the test and declare it a winner. What would you tell her? Explain in layman's terms
+A15. Flipping a biased coin with P(heads)=0.75 (simulated with 10,000 observations)
+	 Ho : P = 0.75, Ha : P < 0.5
+	 Let us say in the first 50 tries, the mean probability is 0.5. P-value is very low, so we reject the null hypothesis of 0.75. That does not mean that we should stop the experiment saying that the coin is not highly biased. As it is giving us the wrong results. So the experiment needs to keep running till 10,000 observations for us to make any conclusion.
+
+Q16. What are the issues with splitting a small dataset (<1K events) in training/test set? What would you do then?
+A16. Information might get lost while splitting a small dataset. If column 3 has values A,B,C and D. All the data points with value C goes to the test set. Then we will loose this information from training set. This will cause the model to loose that information.
+	Use K-Fold cross validation instead.
+
+Q17. Using LinkedIn data, how would you predict when someone is going to change job? Assume you can use all LinkedIn user activity data.
+A17. Percentage increase in daily activity, Number of times linkedin is opened in a day, Percentage increase in weekly activity, Is the person coming on linkedin daily?, Number of messages sent, Are the messages sent to recuiter?, Number of times they open the 'Job' tab, Actual number of jobs applied to per week.
+
+Q18. You ran an A/B test last year and it lost. When would it make sense to re-run the same test today?
+A18. Yes, people and environment along with choices change all the time
+
+Q19. What are the most important parameters in a Random Forest?
+A19. a. max_features used to build individual trees : Gives equal opportunity to each feature. more options to consider
+	 b. n_estimator : higher trees, better results but slower code. saturates after a point
+	 c. min_sample_leaf : A smaller leaf makes the model more prone to capturing noise in train data.
+
+Q20. In on-line gaming companies, do you expect the average revenue per user to be larger or smaller than the median revenue per user?
+A20. Yes, data is very skewed. A really small percentage of people spend 100s of dollars vs many others who spend nothing.
+
+Q21. How would you improve engagement on FB?
+A21. a. Define engagement
+	 b. Pick a metric to optimize
+	 c. pick the variables you think would matter to move that metric. eg. age, sex, geography, device, landing page..
+	 d. pick a model and data with 'engaged' as target variable
+	 e. find features that influence the target variable
+	 f. A/B the changes.
+
+Q22. Difference between KPI and metrics?
+A22. KPI is more high level and tells us more about the strategic business goal. eg. retention
+	 metric is lower level and gives us exact formula to look for. eg metric for retention = (number of people staying after a month from today) / (number of people who joined today)
+	 

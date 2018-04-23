@@ -57,3 +57,85 @@ A15. Prior probability is the proportion of dependent (binary) variable in the d
 	 	eg. The probability that the word ‘FREE’ is used in previous spam message is likelihood
 
 	 Marginal likelihood the probability that the word ‘FREE’ is used in any message.
+
+Q16. How does regularization reduces overfitting?
+A16. By reducing the bias of the model and restricting β.
+	 Overfitting is caused when the model is too complicated, thus it gets built in the shape of the train data.
+	 If we introduce a regularization, it restricts the model by limiting the space that the parameter vector β can live in. β is the estimator here.
+	 So model is simplier and hence overfitting is reduced
+
+Q17. In regression, which loss function is best suited when we have outliers?
+A17. MAE is good for outliers, but is non differentiable at 0
+     MSE is bad for outliers, as being squared, it gives very high importance to errors and makes model complicated
+     Huber loss is a good mix, MSE near 0 and MAE towards outliers
+
+Q18. What is Bayesian neural network?
+A18. Standard neural network is equivalent to looking at the likelihood of the function. We fix the parameters and try to find them. This is the frequentist approach.
+	 But is it right? -> we ignore any uncertainty that we may have in the proper weight values, as we use point estimates.
+	 In Bayesian neural network, we have a Neural Network with a prior distribution in its weights. Hence we get a 'distribution' of answer rather than a single answer.
+
+	 This takes care of both -> regularization and model selection without cross-validation.
+
+Q19. Give an example of a case in which you run an A/B test, test wins with significant p-value, but you still choose to not make the change?
+A19. Sample size too low. bigger the sample size more is the statistical significance of a computed figure
+
+
+Q20. What does statistical significance mean?
+A20. Statistical significance means that there is less chance of sampling error affecting the mean differences. It comes from data and the confidence intervals.
+
+	 Statistical significance means that there is a probability that a relationship between two variables exists.
+	 A practical significance means that there exists a relationship between two variables in the real world.
+
+Q21. Steps for A/B Testing?
+A21. a. Find the business goal : to improve the website
+	 b. Find the KPI used to measure this goal : what to measure, click through rate
+	 c. Select the elements to test : two versions of the submit button
+	 d. Design the test : mean/proportion, sample size, significance level
+	 e. Divide population : stratified random etc
+	 f. Let the test accumulate data : don't stop in between if significance level is reached
+	 g. Document the results and implement the changes if needed
+
+Q22. Type 1 vs Type 2 errors?
+A22. Type 1 error is when we reject the null hypothesis, but the null hypothesis is true
+	 Type 2 error is when we do not reject the null hypothesis, but the null hypothesis is false.
+
+Q23. What is Fourier Transform?
+A23. Given a generic function, it decomposes the generic function into a superimposition of symmetric functions.
+
+Q24. What is multi-colinearity and how to detect and fix it?
+A24. Multi-colinearity : two or more highly correlated variables
+	 Multi-colinearity is bad because X(t)X is not invertible (in case of perfect mc and rank is <n)
+	 Otherwise, the variance of the model is high, because change in one variable drastically changes one or more variables. 
+	 Multi-colinearity thus leads to overfitting
+
+	 We can detect multicolinearity using the VIF(variance inflated factor) - how much variance is in the model
+
+	 Remove multicolinearity by
+	 	removing one of correlated variables
+	 	PCA
+	 	Ridge regression
+
+Q25. Why use timeseries when we have regression?
+A25. Because in time series, we forecast values, which is equal to extrapolating the data.
+	 In trying to extrapolate, if we are using linear regression, we can only predict trend in one direction.
+	 Also, in time series, future is based on past -> in regression we do not take this into account
+
+Q26. Parametric vs non-parametric model?
+A26. parametric models : y_i = b0 + b_i*x_i + e_i
+     non parametric models : y_i = f(x_i)  +e_i
+
+     parametric models are easy to interpret. and easier to make predictions
+     non-parameteric models are more robust and doesn't bother too much about outliers.
+
+Q27. What is bootstrap?
+A27. Given a large dataset, we need to estimate a statistics from that sample dataset. But we have only one dataset.
+	 Bootstrap randomly samples from that dataset and creates sub-datasets that we have seen. 
+	 For these sub-datasets, we create statistics for each of the sub-samples. This gives us the distribution of the statistics.
+	 Bootstrap is always performed with replacement. 
+	 if there are 'n' samples in the dataset. We can perform 1000 bootstrap samplings
+	 	for each iteration, take 'n' samples with replacement, and compute mean(or any other statistics)
+	 we will have a distribution of 1000 means.
+	 take mean of the distribution to calculate the bootstrap mean.
+
+	 Even functions can be bootstrapped. eg. slope of a regression line.
+	 Draw a distribution for slope of the regression lines.

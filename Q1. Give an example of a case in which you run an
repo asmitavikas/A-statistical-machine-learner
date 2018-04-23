@@ -1,0 +1,21 @@
+Q1. Give an example of a case in which you run an A/B test, test wins with significant p-value, but you still choose to not make the change?
+A19. Sample size too low. bigger the sample size more is the statistical significance of a computed figure
+
+
+Q2. What does statistical significance mean?
+A20. Statistical significance means that there is less chance of sampling error affecting the mean differences. It comes from data and the confidence intervals.
+
+	 Statistical significance means that there is a probability that a relationship between two variables exists.
+	 A practical significance means that there exists a relationship between two variables in the real world.
+
+Q3. Steps for A/B Testing?
+A21. a. Find the business goal : to improve the website
+	 b. Find the KPI used to measure this goal : what to measure, click through rate
+	 c. Select the elements to test : two versions of the submit button
+	 d. Design the test : mean/proportion, sample size, significance level
+	 e. Divide population : stratified random etc
+	 f. Let the test accumulate data : don't stop in between if significance level is reached
+	 g. Document the results and implement the changes if needed
+
+Q4. We ran an A/B test. Test won, so we make the change on the site for all users. But after waiting for some time, we realize that the new version of the site is not performing better than the old one. What could be the reason?
+A4. a. One reason could be that the sample size was very low. 

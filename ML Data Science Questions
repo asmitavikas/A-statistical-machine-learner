@@ -81,3 +81,94 @@ A13. At each tree, we want to minimize the MSE using Gradient Descent.
 	 MSE = sum(y - y_i)
 	 y_i = y_i - eta * d(MSE)/d(y_i)
 	 	 = y_i - eta * 2 * sum(y - y_i)
+
+Q14. Feature Engineering process?
+A14. 1. Decompose Categorical Attributes - from color = ['red', 'green', 'unknown'] -> make 'is_red', 'is_green', 'is_unknown'
+	 2. Decompose a Date-Time
+	 3. Reframe Numerical Quantities - weight in grams 6508 can be made into new feature 6kg. Make new features like 'is_above_5kg'. 25% quantile of a value per group
+
+Q15. How to compare two algorithm on the same data set?
+A15. Method 1: 
+		a. use K-fold cross validation to find the mean score (lets say F1 or something)
+		b. we have the mean and variance of two competing algorithms
+		c. use paired-t test to compare the two algorithms
+	Method 2: Sign-test (classification context): 
+		a. Count the number of times A performed better than B
+		b. Assume it comes from a binomial distribution
+		c. Ho : A = B then perform hypothesis testing
+	Method 3: Wilcoxon signed rank test (classification context):
+		a. the wins (A is better than B) are weighted and assumed coming from a symmetric distribution around a common median. Then, we obtain a p-value of the Ho test.
+
+Q16. Typical modeling process
+A16. a. Check for nulls, impute them
+	 b. check for outliers in data (if a regression model) -> deal with them, either remove, or log transform etc
+	 c. feature engineering
+	 d. model creation
+	 e. find evaluation metrics (depending upon class imbalance: roc curve, f score, log loss etc)
+	 f. model evaluation (k fold etc) and parameter tuning
+	 g. interpretation of results
+
+Q17. How to add new features to existing model
+A17. Evaluate if the feature is any good or not?
+	 a. Box plot of the distribution of the classes vs the feature. If there is decent amout of seperation between the two classes, it means there is some signal in the noise.
+	 b. Check to see if the new feature is somehow related with the old features or not
+	 c. Look for old features and see if there is a way of combining them to form the new feature.
+	 d. Use a tree model to check the feature importance.
+
+
+Q18. Optmization function for different models.
+A18. a. Binary Classifier : LogLoss, Precisio, F Score
+     b. Multiclass classifier : confusion matrix of the different classes
+     c. ROC Curve and AUC : Class imbalance
+     d. R^2 : Regression
+
+Q19. What are the drawbacks of using supervised machine learning to predict frauds?
+A19. We have labels for our data in supervised learning. However in unsupervised, we cluster similar datapoints and try to identify them as fraud/non-fraud.
+	 a. Cold start might be a problem in supervised learning. No fraud points to begin with, or new type of fraud data.
+	 b. There might be 'blind connections' in the data, which supervised model overlooks. The model can overlook a seemingly obvious connection such as a shared card between two accounts. eg. we model fraud data on whether a person drives a car or not. If a person drives car 'A' -> fraud. another person does not drive 'A', but owns 'A'. Our model will ignore it
+
+Q20. Bootstraping, bagging, stacking and ensembling?
+A20. 1. Bootstrapping is the process of repeatedly drawing samples of equal size from a population. These samples are drawn with replacement.
+	 
+	 2. Bagging is bootstrap aggregation. It is an approach based on bootstrapping. We produce multiple training sets by sampling with replacement from the population. From each sample, we build a model. Then we ensemble multiple models together with equal weight. 
+
+	 3. Boosting is an iterative process. We build a model on the dataset, then try to reduce the error iteratively by predicting them.
+
+	 4. Stacking : We build several models on our original data (m1,..,m12). Then we use another model(logistic regression) to estimate the inputs together with the outputs and give weights to each model (m1,..,m12)
+	 Each model m1,..,m12 gave us an output. Use those outputs as input and m1,..m12 as features in logistic regression, to determine importance of each feature. Use that importance as weights.
+
+Q21. Common resampling methods?
+A21. 1. Cross validation - with no replacement. Used to evaluate model performance and select models
+	 2. Bootstrapping - with replacement. used to improve models.
+
+Q22. What’s your favorite algorithm, and can you explain it to me in less than a minute?
+A22. My favorite alogrithm would be Random Forest because it is generally not based on any assumptions about the distribution of data or errors (like Regression).
+	 Random Forests are all about a set of rules and building our outputs on those set of rules. Then the majority output is taken as the final output.
+
+Q23. What’s the difference between a generative and discriminative model?
+A23. Let us say we have an input data x and a target label y.
+	 A generative model learns the joint probability distribution p(x,y) and a discriminative model learns the conditional probability distribution p(y|x)
+	 Discriminative models will generally outperform generative models on classification tasks.
+
+Q24. What kind of cross-validation would you use for time-series data?
+A24. Distribute data into train and test based on chronological order, rather than k-fold cross validation.
+	 fold 1 : training [1], test [2]
+	 fold 2 : training [1 2], test [3]
+	 fold 3 : training [1 2 3], test [4]
+	 fold 4 : training [1 2 3 4], test [5]
+	 fold 5 : training [1 2 3 4 5], test [6]  
+
+Q25. What is F1 score and how do we use it?
+A25. Arithmatic mean of precision and recall
+	 Used when True Negative does not matter much.
+
+Q26. How would you handle an imbalanced dataset?
+A26. 1. Collect more data
+	 2. Replicate data to reduce imbalance and use a tree based model
+	 3. Change score to ROC 
+
+Q27. How to ensure overfitting is not happening?
+A27. Keep the model simple
+	 Cross validation
+	 Regularization
+

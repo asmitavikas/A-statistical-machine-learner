@@ -1,0 +1,49 @@
+Set yourself apart by displaying your intellectual horsepower during the application process. Below are examples of problems that our team actually solves. Please select one and develop a short proposal to illustrate how you would use data to address it. Please include your response in your cover letter. The proposal should be a maximum of one (1) page in bullet points that structure your ideas in following five sections:
+
+Assumptions - To frame the problem
+Analysis Methodology - To explain your analysis approach and chosen analytics techniques
+Expected Results and Findings
+Recommendations – Based on expected results and findings
+Potential Limitations inherent in the approach
+
+Below are the questions from which you may choose:
+
+1. How would you assess the impact of weather on consumer spend last winter?
+-> we can frame smaller questions like, 
+		does spending increase with increase in temperature
+		does spending increase with wind speed
+		...
+
+
+	use linear regression for the continous variables
+
+2. How would you determine if a specific block in your neighborhood is suitable for a new grocery store?
+-> assumption - we have historic data about the block
+				number of people in this area
+				competitions
+				supplier
+				environment
+
+				check total costs associated with running the business
+				forecast break even (CAC - revenue)
+
+
+3. Bank X has created a new credit card product, how would you determine the targeting strategy?
+-> Look at past behavior and transactions of customers
+   recommend in 'products for you' sections
+
+   1. past behavior of customers - probability of buying a product
+   2. LTV
+   3. customer preference - is it similar to the kind of products that they liked in past
+
+   1. likelihood of clicking ads - expected value
+   2. LTV forecast
+   3. customer preference - is it similar to the kind of products that they liked in past
+
+4. Bank X has recently started accepting credit card applications over the internet. They are observing  delinquency rates twice the normal level. How would you diagnose the reason and what potential remediation’s may be put in place (if any)?
+-> check if internet application has anything to do with delinquency
+
+5. Bank X (merchant X) has observed declining credit card sales volumes in their core markets. How would
+diagnose the cause and what potential remediation’s may be put in place (if any)
+Visa recently announced a new partnership with a key Fin Tech company. How would you quantify the per customer incremental value of this partnership? 
+-> 

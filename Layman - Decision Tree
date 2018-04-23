@@ -1,0 +1,9 @@
+Let us suppose you are very undecisive about whether to watch a movie tomorrow or not.
+So you decide to play a game of 20 questions with yourself
+Q1. Is the actor good?
+Q2. Is the movie new?
+Q3. Is imdb rating > 4?
+..
+
+This way, if all the answers come in your favor, you decide to watch the movie.
+This is a decision tree with depth 20, for a classification problem.

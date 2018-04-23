@@ -1,0 +1,32 @@
+How to describe PCA to your wine-loving friend.
+
+Let's say you're drinking wine with a friend and want to make describing wine simpler using PCA.
+
+Wine has many characteristics that you would like to describe:
+
+ •  sweetness
+ •  acidity
+ •  bitterness
+ •  saltiness
+ •  body
+ •  heat
+ •  astringency
+ •  texture
+ •  complexity
+• etc
+
+Each of these characteristics could have dozens of subcategories... it's way too complex.
+
+We need to make this more simple.
+
+➡️ We know that these characteristics are driven by the underlying wine-making process.  In this case, we might say that varietal, vintage, and region are the main drivers.
+
+➡️ If we use those three pieces of information to describe a wine, we would have a pretty good understanding of what the wine was like.
+
+➡️ We could use information about various wines to create an average profile for each varietal, vintage, and region.
+
+➡️ Once we have those profiles, we can describe wine based on these three new characteristics and only lose a small amount of detail.
+
+➡️ If we wanted, we could map varietal, vintage, and region back to the original 10+ characteristics.
+
+PCA is a process for discovering those underlying characteristics (varietal, vintage, region) and creating a mapping from the original wine descriptors to the 3 new ones.

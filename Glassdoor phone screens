@@ -1,0 +1,10 @@
+Just spoke with glassdoor about their data science interview. Phone screen had 3 questions:
+1. They have a table called "events" which contains (you guessed it!) events
+Write queries which compute (a) the top 10 jobs by click through rate
+and (b) the top 10 jobs by unique user click through rate
+(there was _bunch_ more information given, but i'm hoping you get the gist)
+Basic idea of count vs. count( distinct
+
+2. Roll two standard dice, would you take the following bet: If 7 comes up then you get $21 + $5 Ante. If any other number comes up you lose your ante.
+
+3. You step into the elevator with the CEO and he asks "How are things going" -- you need to respond with the two more important numbers for glassdoor, what are those numbers.

@@ -1,0 +1,5 @@
+You and a bunch of other kids are hanging out on a playground.  Suddenly, someone yells "FREEZE!" and you are all stuck in place until you can pick teams and agree who's on which team.  How do you go about picking them?
+
+"K Nearest Neighbors" is based on the idea that you're probably hanging out with people who are like you, in terms of which team they belong on.  So, everybody who is near you gets to vote on which team you are on, whether you are on their team, and what to call that team. Make sense?
+
+Now, how close you are to someone physically may not be the right measure.  If you were already playing five-on-five on a basketball court, for example, you may be all mixed up together with the opposing team, but there's SOMETHING that makes your team the same.  Maybe it's which grade you are in, maybe it's boys vs girls, maybe which street you live on, maybe it's shirts vs skins.  So, any given time this K Nearest Neighbors method is used, you have to define what the measure of the "distance" will be between the individuals, and nearer together by that distance means more likely on the same team.    

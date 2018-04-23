@@ -1,0 +1,6 @@
+hypothesis testing for binomial data
+1. Ho : P = p, Ha : P < p
+2. use probability p and calculate the expected value. E = np
+3. now we need to calculate the probability that the value is less than expected value, when null hypothesis is true.
+4. P (X <= p) : P(X=0) + P(X=1) + .. + P(X=p) : this is P-value
+5. is p-value (ie probabilty less than expected value) < significance value, then we reject Ho
