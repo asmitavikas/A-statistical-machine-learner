@@ -172,3 +172,23 @@ A27. Keep the model simple
 	 Cross validation
 	 Regularization
 
+Q28. Why is gradient boosting able to handle categorical variables?
+A28. Because it needs to boost the base model, and it does not matter what does it uses to boost the model.
+
+Q29. How does gradient boosting avoid overfitting?
+A29. 1. Early stopping
+	 2. Regularization -> restrict variables
+	 3. min child weight -> like min sample leaf for RF (minimum number of samples allowed in a leaf)
+
+Q30. Options for measuring feature importance in XGBoost?
+A30. 1. Weight : number of times each feature was used to split across all trees
+	 2. Cover : (number of times each feature was used to split across all trees) and (weighted by number of training observations that went through that split)
+	 3. Gain : improvement in accuracy by each feature
+
+Q31. What makes a measure of feature importance good or bad?
+A31. Consistency : should give same results everytime its run
+	 Accuracy : correct results
+
+Q32. Gradient descend vs stochastic gradient decent?
+A32. In gradient descend, we calculate the derivate for each data point and then sum it up. We do this till we reach the minima. This can be computationally very expensive. 
+	 However, in stochastic gradient descend, we take only only 1 example each time. Calculate the gradient for that, and decend in that direction. Do till minima is reached. The example is chosen randomly each time (hence stochastic). The path is noisier, but it eventually reaches the same result and faster.

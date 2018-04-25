@@ -89,11 +89,12 @@ A20. Statistical significance means that there is less chance of sampling error 
 Q21. Steps for A/B Testing?
 A21. a. Find the business goal : to improve the website
 	 b. Find the KPI used to measure this goal : what to measure, click through rate
-	 c. Select the elements to test : two versions of the submit button
-	 d. Design the test : mean/proportion, sample size, significance level
-	 e. Divide population : stratified random etc
-	 f. Let the test accumulate data : don't stop in between if significance level is reached
-	 g. Document the results and implement the changes if needed
+	 c. Get the metrics from the KPI
+	 d. Select the elements to test : two versions of the submit button
+	 e. Design the test : mean/proportion, sample size, significance level
+	 f. Divide population : stratified random etc
+	 g. Let the test accumulate data : don't stop in between if significance level is reached
+	 h. Document the results and implement the changes if needed
 
 Q22. Type 1 vs Type 2 errors?
 A22. Type 1 error is when we reject the null hypothesis, but the null hypothesis is true
@@ -139,3 +140,16 @@ A27. Given a large dataset, we need to estimate a statistics from that sample da
 
 	 Even functions can be bootstrapped. eg. slope of a regression line.
 	 Draw a distribution for slope of the regression lines.
+
+Q28. What is local optimum vs global optimum?
+A28. Local optimum is when a solution is ideal only when seen in the context of its neighbours.
+     Whereas global optimum is when the solution is ideal across all data points
+
+     Cost function is always decreasing till the local optimum is reached, but not necessarily after that.
+
+     To avoid local optimum -> do multiple iterations. For example in k-means, run k-means multiple times and then take the solution with lowest cost
+
+Q29. Precision, recall and ROC?
+A29. Precision : out of the entries predicted 1, how many are actually 1. --> 1 - specificity
+	 Recall : out of the entries actually 1, how many are predicted 1. --> sensitivity 
+	 ROC = true positive vs false positive --> sensitivity vs specificity
