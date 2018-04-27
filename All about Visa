@@ -24,6 +24,26 @@
    more than 20 million users
    23 countries
 
+Clients of Visa
+- issuers and acquirers
+-  issuers are local banks that provide credit cards in your wallet
+- acquires are the banks used by merchants and retailers to that process your purchase transactions.
+
+
+- issuing bank takes the risk that you will pay them (ie validate the transaction). These issuing banks get paid a fees (interchange fees).
+So consumers are charged a credit card fees. Issuing bank gets an interchange fees for providing the guarentee that the person will pay. Then the rest of the fees goes to visa, who provides the statement, 24/7 support and troubleshooting
+
+Bank rewards:
+The more upmarket the rewards card, the more you’ll pay in interchange fees, in the form of credit card fees,  and the more profitable it is for the bank.
+
+1. Banks and card issuers
+2. Android and apple pay/ samsung pay
+3. mobile platform for taking cards - merchants
+How does visa make money? - Using the 'interchange' fees
+
+
+
+
 Questions to ask?
 1. Since visa has been there for a long time, and data science is a fairly new field, have you seen Visa make any change to its growth strategy based on the data?
 2. How do you take care of security for so many people
