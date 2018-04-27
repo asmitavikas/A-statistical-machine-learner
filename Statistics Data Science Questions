@@ -14,7 +14,9 @@ Q4. Bootstrap resampling?
 A4. Bootstrapping is a statistical method that uses data resampling with replacement (see: generate_sample_indices) to estimate the robust properties of nearly any statistic.
 
 Q5. What is p-value?
-A5. When we perform a statistical test, p-value helps us determine the significance of the results. p-value gives something like "probability of the null hypothesis being true." Small p-value = reject null hypothesis
+A5. P-value is essentially the probability of rejecting the null hypothesis. And how do we reject the null hypothesis? By observing samples beyond the scope of null hypothesis. Thus P-value is the probability of observing samples more extreme than our data, given null hypothesis is true.
+	Small p-value = reject null hypothesis
+
 
 Q6. What is the difference between Bayesian Estimate and Maximum Likelihood Estimation (MLE)?
 A6. In bayesian estimate we have some knowledge about the data/problem (prior) .There may be several values of the parameters which explain data and hence we can look for multiple parameters like 5 gammas and 5 lambdas that do this. So we need with prior and posterior probabilties.
@@ -153,3 +155,15 @@ Q29. Precision, recall and ROC?
 A29. Precision : out of the entries predicted 1, how many are actually 1. --> 1 - specificity
 	 Recall : out of the entries actually 1, how many are predicted 1. --> sensitivity 
 	 ROC = true positive vs false positive --> sensitivity vs specificity
+
+Q30. Power of statistical test?
+A30. Type 1 Error = Rejecting null hypothesis when it is true
+	 Type 2 Error = Not rejecting null hypothesis when it is false = Beta
+	 Power = (1-Beta)
+	 	   = P(X >= x | mean = mean of alternate hypothesis ie x_bar)  
+	 	   = P(Z >= (x - x_bar)/(std/sqrt(n)))
+	 	   = 1 - P (Z < (x - x_bar)/(std/sqrt(n)))
+
+	 https://onlinecourses.science.psu.edu/stat414/book/export/html/245
+
+	 If we have the power to begin with, eg 90%, we can calculate sample size
