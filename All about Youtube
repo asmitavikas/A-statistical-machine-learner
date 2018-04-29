@@ -1,0 +1,33 @@
+Youtube topics
+
+1. Over 1 billion users
+2. Every minute 300 hours of videos are uploaded on Youtube
+3. More than 80% of the audiences are outside US
+
+
+Types of fraud?
+1. Click fraud
+2. Driving people out of youtube to another website, via unrelated links to external sights
+3. Misleading metadata - tags etc
+4. Misleading thumbnails 
+
+Types of scam?
+1. Content that which attempts to trick others for their own financial gain.
+2. Blackmails and such reports
+
+
+How to detect?
+1. Youtube is a community connecting artists and viewers. and the best way to detect spam/fraud is via taking 'flag this video' content
+
+
+How does youtube count views?
+Views - click to the video with the intention of playing it
+1. When views < 300, not much significance is given to HOW the views are generated. Views are counted using the old school 'click on website multiple times' way. So if we refresh our page X times, it is counted as X views.
+This is because, the expected value of a video influencing youtube page is 301.
+2. When views = 301, the analysts verify the source of these views. The views freeze at 301, till the analysts verify the views. If the majority of views are coming from a small number of computers, they are removed.
+3. When views > 301, the algorithm automatically detects and eliminates views from malware and spambots.
+
+Behavioral and case study type questions
+How to identify fraud
+How to identify fraud and scams even when they are not in your language
+Knowledge about Google and its products and how to identify fraud with them
