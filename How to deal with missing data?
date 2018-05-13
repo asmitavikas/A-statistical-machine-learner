@@ -1,0 +1,25 @@
+How to deal with missing data?
+
+1. If the sample set is large enough and we have few missing values, we can delete the samples that have missing value.
+	However, we need to be careful with this. 
+	Delete only when missing data is present at 'Random'. Not when there is a pattern to it.
+
+2. If we have the power to do so, ask for the samples to be corrected
+
+3. Imputation - Continous
+	a. Average imputation, or group average imputation
+	b. Mode imputation
+	c. Median
+	d. Regression substitution
+
+4. Imputation - Catagorical
+	a. Make NA as a level
+	b. Logistic Regression
+
+5. Timeseries
+	a. Non-seasonality : 
+		a. Linear interpolation
+		b. Last observation forward
+		c. Previous observation backward
+	b. With seasonality :
+		Remove seasonality, do linear interpolation and bring seasonality back

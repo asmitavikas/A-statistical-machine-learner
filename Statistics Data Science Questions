@@ -155,9 +155,10 @@ Q29. Precision, recall and ROC?
 A29. Precision : out of the entries predicted 1, how many are actually 1. --> 1 - specificity
 	 Recall : out of the entries actually 1, how many are predicted 1. --> sensitivity 
 	 ROC = true positive vs false positive --> sensitivity vs specificity
+	 AUC = area under ROC curve (this is more robust to class imbalance)
 
 Q30. Power of statistical test?
-A30. Type 1 Error = Rejecting null hypothesis when it is true
+A30. Type 1 Error = Rejecting null hypothesis when it is true = alpha
 	 Type 2 Error = Not rejecting null hypothesis when it is false = Beta
 	 Power = (1-Beta)
 	 	   = P(X >= x | mean = mean of alternate hypothesis ie x_bar)  
@@ -167,3 +168,53 @@ A30. Type 1 Error = Rejecting null hypothesis when it is true
 	 https://onlinecourses.science.psu.edu/stat414/book/export/html/245
 
 	 If we have the power to begin with, eg 90%, we can calculate sample size
+
+Q31. R2 vs MSE?
+A31. R2 tells you about the goodness of fit. It essentially tells how much variability in response can be explained by your model. 
+	 MSE tells us about the predictive power of the model. Used for predictive analysis vs descriptive analysis.
+
+Q32. What is a Box-Cox transformation?
+A32. Power transformation that tends to make the data normal
+		y_new = (y^(lambda) - 1)/lambda
+	When lambda = 0, it is a log transformation
+
+Q33. How to handle outliers?
+A33. 1. Windsorize :  make data within 5-95 percentile etc
+	 2. Transformation : boxcox (where lambda = 0 => log transformation)
+	 3. remove outliers
+
+Q34. Is rotation necessary in PCA? If yes, Why? What will happen if you don’t rotate the components?
+A34. Yes rotation is necessary because it maximizes the difference between variance captured by the component.
+	 If we don’t rotate the components, the effect of PCA will diminish and we’ll have to select more number of components to explain variance in the data set.
+
+Q35. How to reduce dimensionality for variables?
+A35. For numerical variables, we look at correlation. Use PCA
+	 For categorical variables, we look at chi-squared test to determine if the relationship between two categorical variables in the sample = relationship in population.
+	 	Ho - no relation
+	 	Ha - relation
+	 Compare continuous and categorical variables -> ANCOVA (analysis of covariance)
+
+Q36. What is the difference between covariance and correlation?
+A36. Correlation - standarized form of covariance
+	 Covariances are difficult to compare
+
+Q37. What is R2, adjusted R2 and tolerance?
+A37. R2 -> how much variance in the data is explained by the model  1 - (y - y_pred)^2 / (y - y_mean)^2
+	 Adjusted R2 -> R2 scaled for high number of variables
+	 Tolerance -> 1/VIF. indicator of multicollinearity. 
+
+Q38. Reasons for train and test data being different?
+A38. 1. sampling bias : the data distribution is static, but training samples are obtained obtained non-randomly, and with a bias.
+	 2. Covariate shift aka population drift : Here the data is not static, with one population used as a training data, and another population used for testing. eg a drug tested on rats is given to a horses that may have significant differences.
+	 3. Temporal changes : test is ahead in time than train
+	
+Q39. Why does PCA require column mean to be zero (column centric)?
+A39. Centering the data is not a requirement; it does however simplify notation and computations. Covariance matrix when its not column centered = Cov = sum_for_i((x_i - mean) * (x_i - mean)T)
+	 When column centered = Cov = sum_for_i(x_i * x_i_T)
+
+	 1. We calculate the correlation matrix of feature columns and find eigenvectors of this matrix.
+	 2. We take these multidimensional vectors (top k) and calculate the projection of all features on them.
+
+Q40. What is eigenvalue and eigenvalue?
+A40. an eigenvector is a non-zero vector that only changes by a scalar factor when that linear transformation is applied to it.
+	 eigenvalue is the scalar factor that is multiplied to the eigenvector to get the original vector back

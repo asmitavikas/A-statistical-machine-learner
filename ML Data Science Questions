@@ -192,3 +192,81 @@ A31. Consistency : should give same results everytime its run
 Q32. Gradient descend vs stochastic gradient decent?
 A32. In gradient descend, we calculate the derivate for each data point and then sum it up. We do this till we reach the minima. This can be computationally very expensive. 
 	 However, in stochastic gradient descend, we take only only 1 example each time. Calculate the gradient for that, and decend in that direction. Do till minima is reached. The example is chosen randomly each time (hence stochastic). The path is noisier, but it eventually reaches the same result and faster.
+
+Q33. Why use Gradient Descent over Stochastic Gradient Descent and vice versa?
+A33. GD theoritically minimizes the error function better than SGD (because we are looking at all observations). So GD is preferable for smaller datasets, where accuracy is the concern
+	 Whereas SGD is faster and is preferable for larger datasets where we have a speed-accuracy tradeoff.
+
+Q34. Can we overfit a model even after splitting into test and train?
+A34. Yes, if we retune a model after checking the performance on test data, then we tend to overfit on the test set.
+
+Q35. Advantages and disadvantages of decision trees?
+A35. Decision trees are 
+		easy to interpret 
+		robust to outliers (as they are non parametric)
+		less parameters to tune
+	 Bad
+	 	easily overfits - can be reduced by random forest
+
+Q36. Advantages and disadvantages of neural netowrks?
+A36. Good
+		high precision
+		high flexibiltiy in terms of learning new patterns
+	Bad
+		less interpretable - after you increase the layers
+		needs large traning data
+		tuning is difficult
+
+Q37. How can you choose a classifier based on training set size?
+A37. Small training sample : naive bayes behaves better - less overfitting
+	 Large sample : Logistic Regression - accounts for complex relationships
+
+Q38. Explain Latent Dirichlet Allocation (LDA)
+A38. It is an common method of topic modeling
+	 "Dirichlet" distribution is simply a distribution of distributions
+	 Every document is a distribution of topics and every topic is a distribution of words
+
+Q39. Why are ensembles better than individual models?
+A39. Averages out bias
+	 Reduces variance
+	 less overfit
+
+Q40. RF and boosting in terms of bias variance?
+A40. In RF each decision tree gives us low bias. By increasing the number of trees, we reduce variance and hence reduce the chance of overfitting
+	 In boosting each tree gives high bias but low variance (less overfitting). By increasing the number of boosted trees by increasing the number of times we perform boosting, we reduce the bias (error between true and predicted)
+
+Q41. Dimensionality reduction on large volume of data (that can't be fit in memory)
+A41. Randomly sample rows or do stratified random sampling, then load into memory
+	 Load only numerical columns - do PCA
+	 Load only categorical columns - do chi-squared test to find if two columns are related.
+	 	Ho - not related
+	 	Ha - related
+
+Q42. After spending several hours, you are now anxious to build a high accuracy model. As a result, you build 5 GBM models, thinking a boosting algorithm would do the magic. Unfortunately, neither of models could perform better than benchmark score. Finally, you decided to combine those models. Though, ensembled models are known to return high accuracy, but you are unfortunate. Where did you miss?
+A42. Ensembles combine weak learners to create strong learner. However, ensembles work best when the models itself are not correlated. 
+	 If all 5 GBM models are not doing well, it could mean that the models itself are correlated. eg. Model 1 incorrectly classifies User 1 to Bucket 5. All other models also put User 1 to Bucket 5. So they are all correlated
+
+Q43. Can removing intercept term in regression change R2 from 0.3 to 0.8?
+A43. Yes. Intercept makes the model that is equal to mean (without any independent variable in picture).
+	 When intercept is present, R2 evaluates the model wrt to the mean model
+	 When no intercept, R2 makes no such assumptions ie, it removes the mean
+
+Q44. When is Ridge regression favorable over Lasso regression?
+A44. Ridge does not remove the variables, but makes them very close to 0. Ridge is used when 'prediction' is the output.
+	 When we have few variables with large effect -> use lasso
+	 When we have many variables with small effect -> use ridge
+
+Q45. How does a tree split values?
+A45. Based on gini index and entropy. Finds the best features that splits the data into purest form.
+	 Gini index : if we select two items from a population, they should be of the same class. We find the probability of them being in the same class.
+	 	Calculate the gini index of each of the subnode, using formula sum of square of probability for success and failure (p^2+q^2).
+	 	Calculate Gini for split using weighted Gini score of each node of that split  
+
+	 Entropy is the measure of impurity as given by (for binary class):
+	 	- p log p - q log q
+	 	probability of success and failure respectively in that node. 
+
+	 Low entropy and high gini index is needed
+
+Q46. How do you fit a non linear relation to a linear model?
+A46. This can be done by fitting a linear model to nonlinear terms. For example, linear regression for a simple two variable case just fits a line y = mx + b which is a linear model between y and x. If instead of modeling vs x you squared all of the values of x and then repeated the procedure, you would be modeling y = mx^2 + b. The modeling process doesn't change, you are just applying it to nonlinear terms.

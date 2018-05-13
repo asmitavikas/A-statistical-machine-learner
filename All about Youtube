@@ -10,14 +10,33 @@ Types of fraud?
 2. Driving people out of youtube to another website, via unrelated links to external sights
 3. Misleading metadata - tags etc
 4. Misleading thumbnails 
+5. Using other people's content as their own - Copyright owners can use a system called Content ID to easily identify and manage their content on YouTube. Videos uploaded to YouTube are scanned against a database of files that have been submitted to us by content owners.
+	- tags, title, description of the video
+	- Using Deep Learning to find if content matches or not ie. video fingerprinting
+	- also a digital watermark that is uploaded with a copyright video.
+	- audio fingerprinting (finding similarity in audio signals)
 
-Types of scam?
-1. Content that which attempts to trick others for their own financial gain.
-2. Blackmails and such reports
+Types of spam?
+1. Posting unrelated large amounts of untargeted, unwanted, or repetitive content in videos, comments, private messages, or other places on the site. This drives people out of site.
+	- in foreign language : look for repeating text across videos by a single user
+2.  increases the number of views, likes, comments, or other metric either through the use of automatic systems or by serving up videos to unsuspecting viewers, is against our terms. 
+3. Content that which attempts to trick others for their own financial gain.
+4. Blackmails and such reports
 
 
 How to detect?
 1. Youtube is a community connecting artists and viewers. and the best way to detect spam/fraud is via taking 'flag this video' content
+2. Cluster words and phrases that are most commonly associated with Spam
+3. Popular alogrithms : Naive Bayes, C4.5 decision trees, multilayer perceptron
+
+Spam vs inappropriate?
+Spam is when the content is there just to attract clicks and does not serve its true nature. Eg. A video marked about dogs can be redirecting to a webpage
+
+Frauds are inappropriate contents which are marked by users. These can be 
+	sexual content
+	violent content
+	Hateful or abusive content
+	Harmful dangerous acts...
 
 
 How does youtube count views?
@@ -27,7 +46,20 @@ This is because, the expected value of a video influencing youtube page is 301.
 2. When views = 301, the analysts verify the source of these views. The views freeze at 301, till the analysts verify the views. If the majority of views are coming from a small number of computers, they are removed.
 3. When views > 301, the algorithm automatically detects and eliminates views from malware and spambots.
 
+To find fake views..
+1. Wait time between two views = can be found using expected value of poisson's process.
+2. How much of the video is actually getting watched. Only first 10 seconds vs the entire video
+3. User cookies
+
+Youtube kids
+1. The age filter for youtube kids did not work out. So youtube is currently using handpicked content for their kids website.
+
 Behavioral and case study type questions
 How to identify fraud
 How to identify fraud and scams even when they are not in your language
 Knowledge about Google and its products and how to identify fraud with them
+
+change in youtube monitization
+to join the YouTube Partner Program, which is what allows publishers to make money through advertising
+- previously it was 10,000 total views
+- now it is 1000 subscribers and 4000 total hours of video

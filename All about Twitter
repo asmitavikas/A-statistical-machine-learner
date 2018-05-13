@@ -1,0 +1,46 @@
+All about Twitter
+
+Q. How to define engagement of a person at Twitter?
+-> Step 1 is to define engagement. Engagement = @Replies + Retweets + Mentions + Favorites
+   Define an engagement threshold. eg. 1 reply or 2 retweets or 1 mentions or 2 favorites. If one of these, then a person is called engaged
+
+   Engagement rate = (#engaged users in a day/#total users) * 100
+
+Q. What is tweet impression?
+-> Twitter impressions are the number of times a tweet shows up in somebody’s timeline. 
+   Engagement -> a tweet that generates an interaction. ie. reply, favorites, retweet, click on link
+
+Q. When are tweets called engaging?
+-> Measure the following
+	a. Promoted accounts or follow rate -> (number of follows on a Promoted Account) compared to (number of impressions)
+	b. Promoted tweets -> number of clicks, Retweets, favorites, follows and replies on a Promoted Tweet
+	c. Promoted Trends -> The number of clicks, Retweets, favorites, follows and replies on the Promoted Tweets connected to the Promoted Trend.
+
+	Divide all by number of impressions to get the engagement rate
+
+	Twitter engagement = retweets + favorites + mentions + replies
+
+2. How to determine the influence of a person on Twitter?
+-> The influence of a Twitter user goes beyond the simple number of followers. 
+   How likely are they to be retweeted, favorited, or the links inside clicked upon
+   PageRank-based metrics.
+
+   Closeness centrality : length of the shortest paths from a node to everyone else
+   Betweeness centrality : the shortest path that passes through this node and connects two other nodes
+   Influence X = sum y_i = followers of x (1 + p * influence of y_i) / (number of people y_i follows)
+
+Scalding
+Twitter scala based API for writing map-reduce processes. Replaced Pig 
+
+
+Why Twitter?
+The kind of product that Twitter provides that connects users and communities together. With a current usage base of 330 million monthly active users, any small change to the product impacts people in a big. And a platform like twitter itself gives voice to people's opinions
+Being directly associated with Twitter would give me an opportunity to use my data skills for making essential decisions about the product's design and usage. The results would be directly visible to millions of people. The impact and scale sounds most exiciting to me and is my primary motivation for this role.
+
+Data is a tool to answer questions. Framing questions is most important
+
+Important changes to Twitter app in recent years
+1. Change from star (favorite) to heart button
+2. Add moments which is stories from tweets
+3. Restructure tweet timeline
+

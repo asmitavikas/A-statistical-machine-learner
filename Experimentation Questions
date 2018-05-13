@@ -1,0 +1,29 @@
+Experimentation and Hypothesis Testing
+
+hypothesis testing for binomial data
+1. Ho : P = p, Ha : P < p
+2. use probability p and calculate the expected value. E = np
+3. now we need to calculate the probability that the value is less than expected value, when null hypothesis is true.
+4. P (X <= p) : P(X=0) + P(X=1) + .. + P(X=p) : this is P-value
+5. is p-value (ie probabilty less than expected value) < significance value, then we reject Ho
+
+
+What is paired t test?
+null hypothesis : true mean difference between the paired samples is zero
+alternate hypothesis : true mean diff != 0
+Common applications : case-control studies -> to check if control group is same as tested group
+	or repeated-measures designs. -> check for randomness
+
+What is Bonferroni Correction?
+It is a correction method used when testing on multiple conditions. This is to avoid high type 1 error
+When we are testing on multiple factors together, we are basically performing paired test on multiple pairs. But then the type 1 error probability shoots up and becomes 1 - (1 - alpha)^k
+To avoid this, we apply the Bonferroni correction. Individual effect size is reduced to alpha/k
+
+Sample size calculator:
+Step 1. alpha or probability of type 1 error. 
+Step 2. power or (1 - probability of type 2 error) eg. 0.5
+Step 3. effect size. eg. if our experiment measures the height of men vs women. ie. Ho = height_men - height_womam = 0. 
+		effect size is the minimum difference that you desire in order to make the result significant
+		height_men - height_women = delta
+		get the lowest delta or effect size possible that calls the experiment significant.
+Step 4. sample size = (std_dev/k + std_dev) * (z_alpha/2 - z_(1-beta)) / delta

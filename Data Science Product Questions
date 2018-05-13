@@ -121,4 +121,49 @@ A21. a. Define engagement
 Q22. Difference between KPI and metrics?
 A22. KPI is more high level and tells us more about the strategic business goal. eg. retention
 	 metric is lower level and gives us exact formula to look for. eg metric for retention = (number of people staying after a month from today) / (number of people who joined today)
+
+Q23. What are some key business metrics for (S-a-a-S startup | Retail bank | e-Commerce site)?
+A23. SaaS : 
+			customer lifetime value
+			new accounts
+			churn rate
+			usage rate
+			social share rate
+	 Retail bank : 
+	 		offline leads
+	 		online leads
+	 		number of accounts generated in different segments
+	 		risk factors
+	 eCommerce : 
+	 		Click to buy rate
+	 		Average value per customer
+	 		Card abandon rates
+	 		Email leads
+	 		Conversion rate
+
+Q24. How can you help marketing team be more efficient?
+A24. Segment customers - clustering for each type of marketing campaign
+	 NLP on social shares to understand the respect in market
+	 Predict conversion probabilities based on user behavior on website and for more targetted ads
+
+
+
+Q25. If a metrics is going X% down, what will you do?
+A25. find segments of customers/users that this is coming from.
+	 user segmentation using demographics, social status etc to narrow down and understand the customer segment better.
+	 if the problem effects only a few segments, eg. retention of male adults from US has gone down, then step 2 is to look at possible sources of the decline. 
+	 Eliminate external features like weather, social factors etc.
+	 Narrow down on which feature of the product is causing the issue (eg. max dropout rate in a conversion funnel at Page 3)
+	 Make a list of possible reasons (factors) for the decline and try to find if there is a change in one of the factors that influenced the other.
+	 Try to make fixes
+
+Q26. How would you measure the success or failure of a product feature?
+A26. For each feature, what metrics are needed to measure the feature’s effectiveness relative to goal.
+	 Create benchmarks (compare with competitors') for these metrics based on historical data
+
+Q27. What is benchmarking metrics mean?
+A27. a. Comparing metrics to industry best and best practices from other companies. Benchmarks are goals that we aim for.
+	 b. Another use of benchmarks is to indicate a baseline or starting point. We gather information about where we are right now, and then set further goals building on that baseline or benchmark.
+
+	 KPIs are used to quantify the benchmarks. They help in precise measurement for benchmarks
 	 
