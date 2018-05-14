@@ -10,3 +10,62 @@ TL;DR
 Didn't plan, straight to code. Stayed up all night. Lesson: Plan, set milestones and timeline and give realistic time expectations. Helped laters as a team lead
 
 Strength
+Work ethics. when I do a job, I do not only try to finish the job on time. I emphatise about the company and their work and go an extra step on thinking how to make it robust, how to add some bonus qualities to it
+
+Tell me a time you failed and what did you learn from it?
+This was in the begining of the masters degree, for one of our classes, we had to work as a team on a private kaggle competition. And the data was from this company called Parknav. It was a parking prediction data and the training and the test set were highly imbalanced. For eg. training set had data only from Jan to March 2013 and test set had to predict from March 2013 to March 2014.
+When we started in a team of two, we were doing really good in the public leaderboard of kaggle.
+Are you aware of the leaderboards at Kaggle, or I could explain how they work...
+We were always in the top 3 of the public leaderboard. The teacher once hinted that the tables are turned the private board, but I guess we were way to over-confdent about our results and did not pay much attention.
+It turned out that we came 5th from bottom in a team of 40, and it was one of the biggest failures of my academic life. 
+Also, the one that won had the most simple logistic regression model working.
+What I learnt -> Listening to your seniors' advice. Humility and not bein overconfident about the results. Understanding the data before jumping into modeling.
+
+Experience of owning a project from start to finish
+Lead developer for a system that provides Feature Usage Analytics. I was the lead developer for building the entire data-pipeline to monitor health of Logmein products, increase uptime and monitor which features are getting used effectively. 
+Event parsing for click events that were generated when user uses a feature.
+Store it on S3
+Write pig jobs for ETL and put to Redshift
+Build Tableau reports
+I was primarily involved with a product manager in designing how the system would look. The nity-gritty details on what columns are needed to what reports are to be generated daily.
+Also, lead a team of 3 engineers to develop this system.
+Actively communicated with product managers and team leads for design decisions
+
+Teamwork/Collaboration
+Within the team = was the team lead
+Outside = worked extensively with product managers to decide what metrics to use, what columns etc
+
+Stressful Situation
+Work + GRE.
+Had to push some complicated codes to production
+Coped up with setting hard timelines + collaboration with teammates. Dividing work efficiently
+
+Mistake that you made
+Overcommiting in my initial days at work
+
+Conflicts
+Senior taking credit for all the work done.
+Approached manager and had a conversation about it
+The manager setup a meeting where we talked our issues together and tried the understand the reasoning behind his actions
+Later we worked on a couple more projects together
+
+Time that you disagreed with a rule or approach?
+Many a times. Best way is to bring it up in front of the team on time and use standups and other team meetings to provide your points, so that everyone can listen and pitch in. 
+
+A time when you were asked to take sides and you remain neutral?
+This lady was plotting something against the manager and the manager got to know.
+The manager asked for everyone's opinion, but since I had nothing to do with this work, I decided to remain silent
+
+How to deal with someone who does not like you?
+A lot of times we make opinion about others, which may or maynot be true. But we are all allowed to live in our own comfortland.
+I try to ignore if someone doesn't like me to a point where it does not affect my progress or work.
+Else, I find it best to have 1:1 confrontation, so we can talk our hearts out and move on.
+Personally, if I do not like anyone, I try to have minimal interaction until needbe
+
+Time when you had to go above and beyond the call of duty to get the job done?
+Manager out.
+Team lead on leave
+Had to step up to the task of an acting manager in order to the team to function like before
+
+Example where you took specific steps to further your career?
+Doing MS in Data Science

@@ -1,5 +1,21 @@
 All about Twitter
 
+Q. How does Twitter make money?
+-> 86% of the twitter money comes from advertizing.
+   There is a concept of Promoted Accounts, Promoted Tweets, Promoted Trends.
+   Twitter uses data to map the right user to such promoted content
+   Promoted Accounts are paid by the ad agencies and appear in 'Who to follow'
+   Promoted Tweets come in user's timeline
+   Promoted Trends come in popular trends.
+   There was a decrease in ad revenue from 2016 to 2017.
+
+   Other money comes from data licensing
+   Some of the famous data resellers are Datashift and NTT. Now ties are cutoff
+
+Q. Twitter firehose?
+-> Gives full access to all tweets via a streaming API in real time.
+	Twitter streaming api is free but limited, but firehose in costly but provides unlimited realtime access.
+
 Q. How to define engagement of a person at Twitter?
 -> Step 1 is to define engagement. Engagement = @Replies + Retweets + Mentions + Favorites
    Define an engagement threshold. eg. 1 reply or 2 retweets or 1 mentions or 2 favorites. If one of these, then a person is called engaged
