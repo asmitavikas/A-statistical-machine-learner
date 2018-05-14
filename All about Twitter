@@ -31,6 +31,8 @@ Q. When are tweets called engaging?
 
 Scalding
 Twitter scala based API for writing map-reduce processes. Replaced Pig 
+Manhattan
+Distributed database
 
 
 Why Twitter?
@@ -44,3 +46,5 @@ Important changes to Twitter app in recent years
 2. Add moments which is stories from tweets
 3. Restructure tweet timeline
 
+Platform used for experimentation?
+Duck Duck Goose (DDG)

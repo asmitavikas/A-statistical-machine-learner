@@ -1,29 +1,91 @@
 Experimentation and Hypothesis Testing
 
-hypothesis testing for binomial data
-1. Ho : P = p, Ha : P < p
-2. use probability p and calculate the expected value. E = np
-3. now we need to calculate the probability that the value is less than expected value, when null hypothesis is true.
-4. P (X <= p) : P(X=0) + P(X=1) + .. + P(X=p) : this is P-value
-5. is p-value (ie probabilty less than expected value) < significance value, then we reject Ho
+Q. hypothesis testing for binomial data
+	1. Ho : P = p, Ha : P < p
+	2. use probability p and calculate the expected value. E = np
+	3. now we need to calculate the probability that the value is less than expected value, when null hypothesis is true.
+	4. P (X <= p) : P(X=0) + P(X=1) + .. + P(X=p) : this is P-value
+	5. is p-value (ie probabilty less than expected value) < significance value, then we reject Ho
 
 
-What is paired t test?
-null hypothesis : true mean difference between the paired samples is zero
-alternate hypothesis : true mean diff != 0
-Common applications : case-control studies -> to check if control group is same as tested group
-	or repeated-measures designs. -> check for randomness
+Q. What is paired t test?
+	null hypothesis : true mean difference between the paired samples is zero
+	alternate hypothesis : true mean diff != 0
+	Common applications : case-control studies -> to check if control group is same as tested group
+		or repeated-measures designs. -> check for randomness
 
-What is Bonferroni Correction?
-It is a correction method used when testing on multiple conditions. This is to avoid high type 1 error
-When we are testing on multiple factors together, we are basically performing paired test on multiple pairs. But then the type 1 error probability shoots up and becomes 1 - (1 - alpha)^k
-To avoid this, we apply the Bonferroni correction. Individual effect size is reduced to alpha/k
+Q. What is Bonferroni Correction?
+	It is a correction method used when testing on multiple conditions. This is to avoid high type 1 error
+	When we are testing on multiple factors together, we are basically performing paired test on multiple pairs. But then the type 1 error probability shoots up and becomes 1 - (1 - alpha)^k
+	To avoid this, we apply the Bonferroni correction. Individual effect size is reduced to alpha/k
 
-Sample size calculator:
-Step 1. alpha or probability of type 1 error. 
-Step 2. power or (1 - probability of type 2 error) eg. 0.5
-Step 3. effect size. eg. if our experiment measures the height of men vs women. ie. Ho = height_men - height_womam = 0. 
-		effect size is the minimum difference that you desire in order to make the result significant
-		height_men - height_women = delta
-		get the lowest delta or effect size possible that calls the experiment significant.
-Step 4. sample size = (std_dev/k + std_dev) * (z_alpha/2 - z_(1-beta)) / delta
+Q. Sample size calculator:
+	Step 1. alpha or probability of type 1 error. 
+	Step 2. power or (1 - probability of type 2 error) eg. 0.5
+	Step 3. effect size. eg. if our experiment measures the height of men vs women. ie. Ho = height_men - height_womam = 0. 
+			effect size is the minimum difference that you desire in order to make the result significant
+			height_men - height_women = delta
+			get the lowest delta or effect size possible that calls the experiment significant.
+	Step 4. sample size = (std_dev/k + std_dev) * (z_alpha/2 - z_(1-beta)) / delta
+
+Q. Story about AB Testing
+	Premise : I built a sister category prediction system for recommendation at Eventbrite. If a person clicks on a given event, it shows 'Other Events You May Like', and shows the recommendation that we have selected. 
+	Most of the consumers at Eventbrite are 1 time users and we had to change this.
+	Question : 
+		1. Does this new system increase user engagement? 
+		2. Does this increase the chances of buying ticket to another event?
+
+	Let us focus on the first question.
+	Metric : Number of consumers who click on an event from 'other events you may like' section.
+
+	Ho : mean_change_in_clicks <= 0
+	Ha : mean_change_in_clicks > 0 -> right tailed experiment
+
+	Design : Alpha = 0.05, Power = 0.8, 
+			 current conversion = 5%, delta = 5%
+			 Ho. current conversion = new conversion = 5% = p1 = p2
+			 Ha. new conversion - old conversion = 5% = p1 - p2
+			 Sample size = 20000 = (p1(1-p1)/k + p2(1-p2)) * (z_alpha/2 - z_(1-beta)) / delta
+
+	Data : When trying to predict the similar events, we found that our model worked best on users of US. There was no such distinction between people across different cities though. 
+		How did we know this? -> When we made clusters of event categories, the inter-cluster overlap is minimum for US consumers.
+		Ensure randomness : Stratified sampling. First take only people from US. Then randomly attach ids for the experiment.
+			Geo tracking was done via IP.
+		    Also, these ids are randomly set into each of the bucket only when a consumer landed into the second page of the website. ie, the page where the event is already listed. This is to avoid any kind of selection bias (eg. 30 people from group A saw the event, but 50 from group B did)
+
+	We ran the test using google analytics
+	Assumption = n(p) > 10 and n(1-p) > 10
+	Checked the sample mean conversion rate -> probability of clicks 'p1' vs the control 'p2'
+	difference. mean_change_in_clicks = (mean_conversion_test - mean_conversion_control) = (p1_mean - p2_mean)
+	t = (mean_change_in_clicks - 0)/ sqrt(sample_std_dev/sample_size)
+	pvalue of (T >= t)
+	Rejected the null hypothesis
+
+Q. Why does AB testing makes only small fractional improvements in the product?
+-> not because of any fundamental flaw with tests, but because mature products are really hard to improve.
+	however, AB testing is a good way to ensure good ideas don't die young.
+
+Q. Bucketing people - does random assignment always work?
+-> eg. when trying to AB test groupDM feature, we can't allow random assignment. Because if I need to msg 3 my friends, and all three do not have group DM, then we can't test it.
+   or if some change only concerns the male population of united states, then random assignment won't work.
+
+Q. Pitfalls of experiments?
+-> HARKing = seeing the data and making a metrics after that, in order to support our claims. eg. it’s common for an experiment to collect hundreds of metrics, which can be broken down by a large number of dimensions (user attributes, device types, countries, etc.), resulting in thousands of observations — plenty to choose from if you are looking to fit data to just about any story. To avoid = specify the metrics during the setup phase
+
+  Poor process . Avoid = document and review
+
+Q. Data processing pipeline
+	1. What population = eg. we are making a new feature that targets only people in eastern european countries. hence we will have to restrict our sample set to those regions
+	2. Treatment buckets = what are the different levels of the features that we are testing against the code that in already in production. The existing code makes our control group
+	3. Hypothesis = Which metrics are expected to move?
+	4. What metrics should be tracked = in addition to the hypothesis metrics. to see if something else is not broken while we are trying to fix our experiment
+
+Q. Identifying bucket imbalance?
+-> check for imbalanced bucket sizes. 
+	perform a multinomial goodness of fit test -> see if the bucket allocations match the traffic allocation or not.
+	Multinomial goodness of fit:
+		let there be K buckets.
+		O_i = observed samples in bucket i
+		E_i = expected samples in bucket i
+
+		chi_sq (k-1) = sum_for_i ((O_i - E_i) / E_i) 

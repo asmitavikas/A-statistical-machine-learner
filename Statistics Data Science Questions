@@ -218,3 +218,40 @@ A39. Centering the data is not a requirement; it does however simplify notation 
 Q40. What is eigenvalue and eigenvalue?
 A40. an eigenvector is a non-zero vector that only changes by a scalar factor when that linear transformation is applied to it.
 	 eigenvalue is the scalar factor that is multiplied to the eigenvector to get the original vector back
+
+Q41. Why is mean imputation a bad idea?
+A41. 1. brings down the variance of the model.
+	 2. brings down correlation
+
+Q42. An HIV test has a sensitivity of 99.7% and a specificity of 98.5%. A subject from a population of prevalence 0.1% receives a positive test result. What is the precision of the test (i.e the probability he is HIV positive)?
+A42. Precision = P(Actual+ | Predicted+)
+	 Using bayes rule.
+	 P(Act+ | Pred+) = (P(Pred+ | Act+) * P(Act+)) / (P(Pred+ | Act+) * P(Act+) + P(Pred+ | Act-) * P(Act-))
+	 		= (Recall_or_Sensitivity * Prevalence) / (Recall_or_Sensitivity * Prevalence + (1-Specificity) * (1-Prev))
+	 		= 99*0.1 / (99*0.1 + (100-98.5)*(1-0.1))
+	 		= 88
+
+Q43. Geiger counter records 100 radioactive decays in 5 minutes. Find an approximate 95% interval for the number of decays per hour.
+A43. Start by getting the 95% CI per 5 minute.
+	 Poisson process with lambda = 100
+	 95%CI = lambda +- 1.96 * sqrt(lambda) = 100 +- 1.96*10 = [80.4, 119.6]
+	 CI per hour = [80.4, 119.6]*12 = (965, 1435)
+
+Q44. The homicide rate in Scotland fell last year to 99 from 115 the year before. Is this reported change really networthy?
+A44. Get the 95% CI of the homicide rate from previous year. If the new rate lies in the CI, then this is not significant enough.
+	 Poisson's process. lambda = 115. 
+	 95% CI : lambda +- 1.96 * sqrt(lambda) = 115 +- 1.96 * sqrt(115) = [94,137] 
+	 Since 115 lies in the CI, we can't consider this significant.
+
+Q45. In a study of emergency room waiting times, investigators consider a new and the standard triage systems. To test the systems, administrators selected 20 nights and randomly assigned the new triage system to be used on 10 nights and the standard system on the remaining 10 nights. They calculated the nightly median waiting time (MWT) to see a physician. The average MWT for the new system was 3 hours with a variance of 0.60 while the average MWT for the old system was 5 hours with a variance of 0.68. Consider the 95% confidence interval estimate for the differences of the mean MWT associated with the new system. Assume a constant variance. What is the interval? Subtract in this order (New System - Old System).
+A45. mean = new - old = 3 - 5 = -2
+	 var_1 = 0.68, var_2 = 0.6
+	 n_1 = 10 = n_2
+	 CI = mean +- 1.96 * sqrt(var_1/n_1 + var_2/n_2)
+	 	= -2 +- 1.96 * sqrt(0.68/10 + 0.6/10)
+
+	 if we are to assume constant variance, we can have a pooled variance calculated.
+	 var_pooled = var_1*(n_1 - 1) + var_2*(n_2 - 1) / n_1 + n_2 -2
+	 mean +- 1.96 * sqrt(var_pooled * (1/n_1 + 1/n_2))
+	 
+

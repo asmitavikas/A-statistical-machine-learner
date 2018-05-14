@@ -270,3 +270,10 @@ A45. Based on gini index and entropy. Finds the best features that splits the da
 
 Q46. How do you fit a non linear relation to a linear model?
 A46. This can be done by fitting a linear model to nonlinear terms. For example, linear regression for a simple two variable case just fits a line y = mx + b which is a linear model between y and x. If instead of modeling vs x you squared all of the values of x and then repeated the procedure, you would be modeling y = mx^2 + b. The modeling process doesn't change, you are just applying it to nonlinear terms.
+
+Q47. When to use Kfold vs LOOC (leave one out crossvalidation)?
+A47. There is a bias variance tradeoff between the two.
+	 LOOC gives low bias but high variance. Low bias because training set = n-1 examples, so it might cover test set well. High variance, coz any change in training set will drastically change the model.
+	 K-fold : high bias but low variance. less overlap
+
+	 Use LOOC when you have less data
