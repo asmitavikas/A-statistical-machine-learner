@@ -1,5 +1,18 @@
 All about Twitter
 
+Importnat metrics
+monthly active users, impression and engagement, attention
+monthly active users = number of unique users in a given month
+impressions = total tweets that people see
+engagement = total tweets that people interact with (reply, retweet, favorite, hashtags)
+attention = amount of time spent interacting
+Click through rates for ads
+
+Timeline
+	1. Ranked tweets - relevance score (the tweet, tweets author and my interests)
+	2. Incase you missed it - important but old tweets
+	3. Reverse chronological - remaining tweets, retweets, promoted accounts etc
+
 Q. How does Twitter make money?
 -> 86% of the twitter money comes from advertizing.
    There is a concept of Promoted Accounts, Promoted Tweets, Promoted Trends.
@@ -64,3 +77,23 @@ Important changes to Twitter app in recent years
 
 Platform used for experimentation?
 Duck Duck Goose (DDG)
+
+Jesar Shah -> twitter bookmarks + share
+
+Recent twitter changes/additions:
+	1. Timelines - videos that start from a specific point in time
+	2. Bookmark and share
+	3. + icon for creating threads of tweets
+
+AB Testing on bookmarks
+click rate : now not everyone who is clicks the share icon, so we can't get the sampe size be determined by that.
+			 sample size is determined by the number of people who see the 'bookmark icon' -> %clicked
+			 a we can get a historical data of the proportion of people who goto the 'share' option. If lets say 10% people on an average goto the share icon, we can adjust the population accordingly, such that n_1 people see the share option with bookmark and n_2 see without bookmark.
+			 lets say n_1 is 100, then we have to make pop_1 = 1000
+			 n_2 = 200, then pop_2 = 2000
+
+			 Ho. click_rate_1 <= click_rate_2
+			 Ha. click_rate_1 > click_rate_2
+
+			 click_rate_1 = people_click/n_1
+			 delta = effect size 

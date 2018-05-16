@@ -89,3 +89,13 @@ Q. Identifying bucket imbalance?
 		E_i = expected samples in bucket i
 
 		chi_sq (k-1) = sum_for_i ((O_i - E_i) / E_i) 
+
+Q. Would you do AB test if the observations are extremely right skewed?
+-> 1. look at another metric that has lesser variability
+	eg. instead of looking at mean revenue (amount of money spend), look at mean conversion (item bought or not)
+   2. cap values. 
+   	eg. if we are looking at the time spent in a website, we might remove extreme values
+
+Q. How would you design an experiment to determine the impact of latency on user engagement?
+-> The best way I know to quantify the impact of performance is to isolate just that factor using a slowdown experiment, i.e., add a delay in an A/B test.
+
