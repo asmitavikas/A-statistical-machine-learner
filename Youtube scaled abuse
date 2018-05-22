@@ -1,0 +1,77 @@
+Youtube scaled abuse 
+
+
+Topics
+	1. Spam accounts detection
+	2. Spam in videos
+	3. Spam in video description/thumbnails
+	4. Copyright infringment
+	5. Propaganda bots - post comments/replies (can use their reply text to check)
+
+
+Email spam classification
+	using deep learning for classification
+	each time an email is marked as spam, it is updated in the dataset, and the NN can adjust its function accordingly.
+	if a wrong email is classified as spam, the owners can pitch in and justify. Upon correct justification, it is updated in the dataset as 'not spam'
+
+How does YouTube catch inappropriate or videos that are spam?
+
+	1. Explicit content detection
+	2. Manual reporting
+	3. Static videos - videos with just one image or text
+
+How does YouTube stop the copyright materials from being uploaded on YouTube?
+
+	digital watermarking on each video that is uploaded by the owner - content ID
+	this helps content owners identify the copies of their content on the platform
+
+	how does content id works?
+		1. when owners upload the video, they give an audio/visual reference files that identifies their work.
+		2. a digital fingerprint is created and stored in the database.
+		3. we can scan the content ids against other fingerprints to see if there is a match
+				audio
+				video
+				melodies
+
+	what can owners do when they see the match?
+		block
+		monetize
+		get detailed analytics of user data, to see eg. countries where their videos are popular
+
+How does Youtube identify bots?
+	Bots
+		1. many views coming from same address (ip)
+		2. at the exact same instance (timestamp)
+		3. watchtime for bots is typically = 30-40s
+		4. If a video is reloaded repeatedly
+		5. watch trendline of the views of the video -> if there is a sudden spike and no external factor causing that spike
+		6. Accounts created recently
+
+Naive Bayes:
+	P(spam | word_i) = (P(word_i | spam) * P(spam)) / (P(word_i | spam) * P(spam) + P(word_i | !spam) * P(!spam))
+	take product for all word_i
+
+	Laplace smoothning (for new words that are not in the training set)
+	add a factor of alpha to P(word_i | spam) = (Probability_of_word_given_spam + alpha) / (total_spam_words + alpha*num_words)
+	
+	Log space -> do log for all
+
+	Use ngrams with bag of words
+
+
+Methods:
+1. IP Based location anomaly detection
+2. Frequency capping : # views, view duration, time between two views...
+3. duplicate account detection
+
+Features:
+1. User signin features - with C4.5
+2. Unsupervised learning on spam detection framework
+3. Geography of users to determine comment spams
+
+Features from account:
+1. Unique IP
+2. Age
+3. Profile pic
+4. Fields completed in the form
+5. Account age

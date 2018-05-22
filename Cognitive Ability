@@ -1,0 +1,36 @@
+Cognitive Ability
+
+Q1. How many golf balls can fit in a school bus?
+A1. 1. Make estimates : typical size of the bus. 8ft by 6ft by 20 ft = 960 ft^3 = 1.6 million cubic inches
+						typical golf ball of radius .85 inches = 4/3 * pi * r^3 = 2.5 cubic inches
+	2. Calculation : 1.6 million / 2.5	= 640,000 golf balls
+	3. Remove external factors : seats and other things that occupy the bus. Total 500,000 estimate
+
+Q2. How much will you charge to clean all windows in seatle?
+A2. 1. Estimates : Assuming there are 500,000 people in the area -> 200,000 houses -> 200,000 * 4 windows = 800,000
+				   There are some small + some big windows that we have to clean at different prices. 
+				   	Let there be small windows = 600,000
+				   	Let there be large windows = 200,000
+				   If one person can clean 50 small windows in a day, or 20 large windows in a day.
+	2. Calculation : small windows will need 600,000/50 = 12,000 man days = 12000 * 8 = 96,000 man hours
+				     large windows will need 200,000/20 = 10,000 man days = 10000 * 8 = 80,000 man hours
+				     Total = 176,000 man hours
+				     Let the salary per hour be $10
+				     Total = 176,000 * 10 = 1.76 million USD
+	3. External factors : Add my cut $0.5/man_hour = $176,000 * 0.5 = $88,000
+						  Total = 176,000 + 88,000 = $2.64million
+
+Q3. If ads were removed from Youtube, how would it monetize?
+A3. Using copyright selling
+
+Q4. Estimate how many new books in US per year?
+A4. Estimates : population = 320million
+				let 25% read books = 80 million
+				each person reads 2 book in an year = 160 million
+				let 50% of them be recirculated, new = 80 million
+
+	Calculation : total new books = 80 million
+				  best seller authors will sell a lot of copies, others not so much.
+				  right tailed
+				  assume number of copies per book = 100,000
+				  total new titles = 8,000,000/50,000 = 160 new copies
