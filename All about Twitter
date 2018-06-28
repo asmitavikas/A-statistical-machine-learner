@@ -97,3 +97,23 @@ click rate : now not everyone who is clicks the share icon, so we can't get the 
 
 			 click_rate_1 = people_click/n_1
 			 delta = effect size 
+
+AB Testing on 280 characters:
+	Pre experiment : % of the tweets in each language that can't be expressed in 140 characters. Trend lines (#tweets vs #characters)
+		probability that a person will abandon a tweet (p) if it doesn't pass 140 characters -> trend
+	Key metric : are longer tweets higher in quality? -> #likes, #retweets, #reply, other engagments
+	Other important metrics for ad-hoc analysis : how many bigger tweets were generated, impact on timeline density?
+	Data segmentation : Since not everyone felt strongly about cramming, it was necessary to segment the users into groups based on how cramming is affected in the language they tweet in. Segment users into buckets based on the primary language that they tweet in .. 	
+		1. most effected by cramming
+		2. mid
+		3. not at all
+	Test randomness by A/A testing
+	Test that buckets come from same distribution by KS test for two samples
+	Ho. no increase in engagement
+	Ha. increase in engagement
+
+Testing on the Tweet Search Results
+	1. engage with the Search results -> retweet, like, reply
+	2. spend more time
+	3. tweet more
+

@@ -277,3 +277,6 @@ A47. There is a bias variance tradeoff between the two.
 	 K-fold : high bias but low variance. less overlap
 
 	 Use LOOC when you have less data
+
+Q48. How to identify if validation set is good?
+A48. If increase in validation set error increases the test set error and decrease
